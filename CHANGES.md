@@ -1,3 +1,11 @@
+1.1.0.1
+-----
+
+* Skips a relationship where source or destination is nil
+* Checking entity by model name
+* Checks that a model is not abstract before all
+* Correct 'No entities found' error
+
 1.1.0
 -----
 
