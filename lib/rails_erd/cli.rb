@@ -57,6 +57,12 @@ Choice.options do
     desc "Filter to exclude listed models in diagram."
   end
 
+  option :colour do
+    long "--colour"
+    desc "Add edge colours."
+    default false
+  end
+
   separator ""
   separator "Output options:"
 

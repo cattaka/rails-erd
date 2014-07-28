@@ -78,8 +78,7 @@ module RailsERD
         :penwidth => 1.0,
         :labelangle => 32,
         :labeldistance => 1.8,
-        :fontsize => 7,
-        :colorscheme => "set19"
+        :fontsize => 7
       }
 
       #Color schemes
@@ -184,6 +183,11 @@ module RailsERD
         NODE_ATTRIBUTES.each  { |attribute, value| graph.node[attribute] = value }
         EDGE_ATTRIBUTES.each  { |attribute, value| graph.edge[attribute] = value }
 
+		# turn on colour edges if requested
+		if options.colour
+			graph.edge[:colorscheme] = "set19"
+		end
+		
         # Switch rank direction if we're creating a vertically oriented graph.
         graph[:rankdir] = :TB if options.orientation == :vertical
 

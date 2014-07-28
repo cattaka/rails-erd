@@ -1,3 +1,8 @@
+1.1.1
+-----
+
+* Make edge colours optional (pass in --colour to turn them on)
+
 1.1.0.1
 -----
 
