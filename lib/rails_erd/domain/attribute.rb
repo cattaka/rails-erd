@@ -11,9 +11,12 @@ module RailsERD
       class << self
         def from_model(domain, model) # @private :nodoc:
           cols = model.columns.collect { |column| new(domain, model, column) }
-          primary = cols.detect{|m| m.column.primary }
-          cols.delete(primary)
-          cols.sort.unshift(primary)
+
+          # [ASM] Rails 4.2 doesn't like this
+          #  I can't find "primary" anywhere in the docs
+          # primary = cols.detect{|m| m.column.primary }
+          # cols.delete(primary)
+          # cols.sort.unshift(primary)
         end
       end
 
@@ -58,7 +61,10 @@ module RailsERD
 
       # Returns +true+ if this attribute is the primary key of the entity.
       def primary_key?
-        column.primary
+          # [ASM] Rails 4.2 doesn't like this
+          #  I can't find "primary" anywhere in the docs
+          # column.primary
+          false
       end
 
       # Returns +true+ if this attribute is used as a foreign key for any
