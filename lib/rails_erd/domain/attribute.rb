@@ -61,10 +61,7 @@ module RailsERD
 
       # Returns +true+ if this attribute is the primary key of the entity.
       def primary_key?
-          # [ASM] Rails 4.2 doesn't like this
-          #  I can't find "primary" anywhere in the docs
-          # column.primary
-          false
+        @model.primary_key == column.name
       end
 
       # Returns +true+ if this attribute is used as a foreign key for any

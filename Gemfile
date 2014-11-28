@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gemspec
 
 if ENV["edge"]
-  gem "activerecord", :github => "rails/rails"
+  gem "activerecord", "4.2.0.beta2", :github => "rails/rails"
 end
 
 group :development do
