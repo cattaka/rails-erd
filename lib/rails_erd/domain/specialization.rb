@@ -1,6 +1,6 @@
 module RailsERD
   class Domain
-    # Describes the specialization of an entity. Specialized entites correspond
+    # Describes the specialization of an entity. Specialized entities correspond
     # to inheritance or polymorphism. In Rails, specialization is referred to
     # as single table inheritance, while generalization is referred to as
     # polymorphism or abstract classes.
@@ -49,7 +49,9 @@ module RailsERD
       attr_reader :specialized
 
       def initialize(domain, generalized, specialized) # @private :nodoc:
-        @domain, @generalized, @specialized = domain, generalized, specialized
+        @domain = domain
+        @generalized = generalized || NullGeneralized.new
+        @specialized = specialized || NullSpecialization.new
       end
 
       def generalization?
@@ -64,6 +66,18 @@ module RailsERD
 
       def <=>(other) # @private :nodoc:
         (generalized.name <=> other.generalized.name).nonzero? or (specialized.name <=> other.specialized.name)
+      end
+    end
+
+    class NullSpecialization
+      def name
+        ""
+      end
+    end
+
+    class NullGeneralized
+      def name
+        ""
       end
     end
   end

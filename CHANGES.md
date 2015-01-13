@@ -1,3 +1,20 @@
+1.2.2
+-----
+
+* Fixes a bug in sorting abstract classes (Issues #54, #88)
+
+1.2.1
+-----
+
+* Fixes a bug in OS detection for JRuby (and newer MRI Rubies, too)
+
+1.2.0
+-----
+
+* Fixed bug that prevented generation of diagrams on newer versions of OSX
+* Added ability to store CLI configuration options in a config file, both a global version (in the user's home directory) as well as a per-project local versions
+* Added a Code of Conduct for the project
+
 1.1.1
 -----
 
